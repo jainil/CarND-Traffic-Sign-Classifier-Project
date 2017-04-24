@@ -1,4 +1,4 @@
-#**Traffic Sign Recognition**
+# **Traffic Sign Recognition**
 
 ## Writeup Template
 
@@ -31,6 +31,12 @@ The goals / steps of this project are the following:
 [imagep3]: ./output_images/3.png
 [imagep4]: ./output_images/4.png
 [imagep5]: ./output_images/5.png
+
+[imagex1]: ./output_images/x1.png
+[imagex2]: ./output_images/x2.png
+[imagex3]: ./output_images/x3.png
+[imagex4]: ./output_images/x4.png
+[imagex5]: ./output_images/x5.png
 
 ## Rubric Points
 ### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/481/view) individually and describe how I addressed each point in my implementation.
@@ -122,22 +128,20 @@ Here are the results of the prediction:
 
 | Image| Prediction|
 |:---------------------:|:-----------------------------:|
-| 30 km/h | 60 km/h |
+| 30 km/h | 30 km/h |
 | Right turn | Right turn |
 | Pedestrian crossing | General Caution |
 | Ahead only | Ahead Only |
 | Stop | Stop |
 
-The model was able to correctly guess 3 of the 5 traffic signs, which gives an accuracy of 60%. This is not surprising considering that there are two hard to classify images in the dataset. I believe that adding some more training data for the more complicated signs and more meticulous preprocessing(proper cropping, perspective transform) would lead to better results.
+The model was able to correctly guess 4 of the 5 traffic signs, which gives an accuracy of 80%, which compares favorably to the test model performance of about 90% accuracy.
 
 #### 3. Describe how certain the model is when predicting on each of the five new images by looking at the softmax probabilities for each prediction. Provide the top 5 softmax probabilities for each image along with the sign type of each probability. (OPTIONAL: as described in the "Stand Out Suggestions" part of the rubric, visualizations can also be provided such as bar charts)
 
-I have plotted below the 5 [top k](https://www.tensorflow.org/api_docs/python/tf/nn/top_k) values for each image. The relative magnitude of the first bar is the amount of confidence the model has for the predicted output.
-For e.g., the first image, the weights of the `30 km/h` label is quite close to the `60 km/h` label indicating that the model is not extremely confident that the `30 km/h` is the correct one. Contrast this with the second image where the `turn right ahead` class has significantly greater weight than the others, indicating that the model is highly confident that the sign is of the `turn right ahead` class.
-Similar inferences from the other images' top_k plots can be made about the model's confidence in its predictions of the traffic signs class.
+Here are the same results with the `top_k` function run on the output of `tf.nn.softmax`. Based on the results of the following plots, it is implied that the model is 100% confident of the output.
 
-![alt text][imagep1]
-![alt text][imagep2]
-![alt text][imagep3]
-![alt text][imagep4]
-![alt text][imagep5]
+![alt text][imagex1]
+![alt text][imagex2]
+![alt text][imagex3]
+![alt text][imagex4]
+![alt text][imagex5]
